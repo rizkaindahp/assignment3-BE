@@ -1,6 +1,5 @@
 import { User } from '../models/User'
 import { Request, Response, ErrorRequestHandler, NextFunction } from 'express'
-import bcrypt from 'bcrypt'
 
 class userController{
    static async updateUser(req: Request, res: Response, next: NextFunction) {

@@ -4,7 +4,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
+const dotenv_1 = __importDefault(require("dotenv"));
 class mongoDB {
+    constructor() {
+        dotenv_1.default.config();
+    }
     connectDB() {
         const pathURI = process.env.DB_HOST;
         const connectOption = {

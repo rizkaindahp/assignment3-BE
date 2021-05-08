@@ -25,7 +25,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const User_1 = require("../models/User");
 const dotenv_1 = __importDefault(require("dotenv"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const bcrypt_1 = __importDefault(require("bcryptjs"));
+const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const EmailValidator = __importStar(require("email-validator"));
 class auth {
     constructor() {
@@ -38,7 +38,7 @@ class auth {
                 username: req.body.username,
                 fullname: req.body.fullname,
                 email: req.body.email,
-                password: bcrypt_1.default.hashSync(req.body.password, 10),
+                password: bcryptjs_1.default.hashSync(req.body.password, 10),
             });
             newUser
                 .save()
@@ -62,7 +62,7 @@ class auth {
             if (!result) {
                 return next({ name: "Email_and_Password" });
             }
-            let passwordIsValid = bcrypt_1.default.compareSync(req.body.password, result.password);
+            let passwordIsValid = bcryptjs_1.default.compareSync(req.body.password, result.password);
             if (!passwordIsValid) {
                 return next({ name: "Email_and_Password" });
             }

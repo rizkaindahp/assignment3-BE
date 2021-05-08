@@ -1,1 +1,1 @@
-web: env-cmd -f ./src/config/dev.env node server.js
+web: node build/server.js
