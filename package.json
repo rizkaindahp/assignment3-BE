@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.ts",
   "scripts": {
-    "dev": "env-cmd -f ./src/config/dev.env nodemon server.ts",
-    "start": "env-cmd -f ./src/config/dev.env node server.ts"
+    "dev": "env-cmd -f ./src/config/dev.env nodemon server.js",
+    "start": "env-cmd -f ./src/config/dev.env node server.js"
   },
   "keywords": [],
   "author": "",
