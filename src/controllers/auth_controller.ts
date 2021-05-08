@@ -2,7 +2,7 @@ import { Request, Response, ErrorRequestHandler, NextFunction} from 'express'
 import { User } from '../models/User'
 import dotenv from 'dotenv'
 import jwt from 'jsonwebtoken'
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import * as EmailValidator from 'email-validator';
 
 class auth {
