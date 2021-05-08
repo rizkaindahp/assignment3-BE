@@ -1,0 +1,520 @@
+//   static login(req:Request, res:Response){
+  //     User.findOne({ email: req.body.email })
+  //     .then((result) => {
+  //       if (!result) {
+  //         return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+  //       }
+
+  //       let passwordIsValid = bcrypt.compareSync(req.body.password, result.password);
+  //       if (!passwordIsValid) {
+  //         return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+  //       }
+
+  //       const secretKey: string = (process.env.SECRET_KEY as string)
+  //       let token:any = jwt.sign({ id: result.id }, secretKey , {
+  //         expiresIn: '1hr',
+  //       });
+  //       res.status(200).json({ msg: `Welcome ${result.username}..`, data: result, accessToken: token });
+  //     })
+  //     .catch((err) => {
+  //       res.status(500).json({ msg: 'Failed login', data: err });
+  //     });
+  //  }
+}
+
+    // static login(req:Request, res:Response) {
+    //   User.findOne({ email: req.body.email })
+    //     .then((result) => {
+    //       if (!result) {
+    //         return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+    //       }
+    //       let passwordIsValid = bcrypt.compareSync(
+    //         req.body.password,
+    //         result.password
+    //       );
+    //       if (!passwordIsValid) {
+    //         return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+    //       }
+    //       const secretKey: string = (process.env.SECRET_KEY as string)
+    //       let token:any = jwt.sign({ id: result.id }, secretKey , {expiresIn: '1hr',});
+    //       res.status(200).json({
+    //         message: "Login Success",
+    //         data: result,
+    //         AccessToken: token,
+    //       });
+    //     })
+    //     .catch((err) => {
+    //       res.status(500).json({msg: 'Login is Failed'})
+    //     });
+    // }
+
+    // static async login(req:Request, res:Response){
+    //   try {
+    //     const emailLogin:any = await User.findOne({ email: req.body.email })
+    //     if (!emailLogin) {
+    //       return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+    //     }
+    //     const passwordLogin:any = bcrypt.compareSync(req.body.password, emailLogin.password);
+    //     if (!passwordLogin) {
+    //       res.status(401).json({success: false, msg: 'Users with this email and password is wrong',});
+    //     }else {
+    //       const secretKey: string = (process.env.SECRET_KEY as string)
+    //       let token = jwt.sign({ id: emailLogin.id }, secretKey , {expiresIn: '1hr',});
+    //       res.status(200).json({ msg: `Welcome ${emailLogin.username}..`, data: emailLogin, accessToken: token });
+    //     }
+    //   }
+    //   catch {
+    //     res.status(500).json({msg: 'Login is Failed'})
+    //   }
+    // }
+
+    // static login(req:Request, res:Response){
+    //   User.findOne({ email: req.body.email })
+    //   .then((result): any => {
+    //     if (!result) {
+    //       return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+    //     }
+    //     let passwordIsValid = bcrypt.compareSync(req.body.password, result.password);
+    //     if (!passwordIsValid) {
+    //       return res.status(401).json({success: false,msg: 'Users with this email and password is wrong',});
+    //     }
+    //     const secretKey: string = (process.env.SECRET_KEY as string)
+    //     let token:any = jwt.sign({ id: result.id }, secretKey , {
+    //       expiresIn: '1hr',
+    //     });
+    //     res.status(200).json({ msg: `Welcome ${result.username}..`, data: result, accessToken: token });
+    //   })
+    //   .catch((err) => {
+    //     res.status(500).json({ msg: 'Failed login', data: err });
+    //   });
+    // }
+
+
+
+    //   static register(req:Request, res:Response) {
+    //   const emailValidate = EmailValidator.validate(req.body.email);
+    //   if (emailValidate == true) {
+    //     const newUser = new User({
+    //       username: req.body.username,
+    //       fullname: req.body.fullname,
+    //       email: req.body.email,
+    //       password: bcrypt.hashSync(req.body.password, 10),
+    //     });
+    //     newUser
+    //       .save()
+    //       .then((savedUser) => {
+    //         res.status(201).json({
+    //           message: "Created User Data Success",
+    //           data: savedUser,
+    //         });
+    //       })
+    //       .catch((err) => {
+    //         res.status(500).json({msg: 'Please input username, fullname, email and password'})
+    //       });
+    //   } else {
+    //     res.status(500).json({msg: 'Email is Failed'})
+    //   }
+    // }
+
+    // static async register(req:Request, res:Response) {
+    //   const username = req.body.username
+    //   const fullname = req.body.fullname
+    //   const email = req.body.email
+    //   const password = req.body.password
+
+    //   try {
+    //      if (username && fullname && email && password) {
+    //         const newUser = await User.create({
+    //            username: username,
+    //            fullname: fullname,
+    //            email: email,
+    //            password: bcrypt.hashSync(password, 8),
+    //         })
+    //         res.status(201).json({msg: 'Succecc create your account',data: newUser})
+    //      } else {
+    //         res.status(500).json({msg: 'Please input name, email and password'})
+    //      }
+    //   } catch {
+    //      res.status(500).json({data: 'Error'})
+    //   }
+    // }
+
+    // static register(req:Request, res:Response) {
+    //   const emailValidate = EmailValidator.validate(req.body.email);
+    //   if (emailValidate == true) {
+    //     const newUser = new User({
+    //       username: req.body.username,
+    //       fullname: req.body.fullname,
+    //       email: req.body.email,
+    //       password: bcrypt.hashSync(req.body.password, 10),
+    //     });
+    //     newUser
+    //       .save()
+    //       .then((savedUser) => {
+    //         res.status(201).json({
+    //           message: "Created User Data Success",
+    //           data: savedUser,
+    //         });
+    //       })
+    //       .catch((err) => {
+    //         res.status(500).json({msg: 'Please input username, fullname, email and password'})
+    //       });
+    //   } else {
+    //     res.status(500).json({msg: 'Email is Failed'})
+    //   }
+    // }
+
+    // static async login(req: Request, res: Response) {
+    //   try {
+    //     const loginEmail: any = await User.findOne({email: req.body.email});
+    //     console.log(loginEmail);
+    //     if (!loginEmail) {
+    //       res.status(500).json({
+    //         success: false,
+    //         message: "Login Failed!",
+    //       });
+    //     }
+    //     const loginPassword = bcrypt.compareSync(
+    //       req.body.password,
+    //       loginEmail.password
+    //     );
+
+    //     if (!loginPassword) {
+    //       res.status(500).json({
+    //         success: false,
+    //         message: "Password Failed!",
+    //       });
+    //     } else {
+    //       const key: string = process.env.secretKey as string;
+    //       let token = jwt.sign({id: loginEmail.id}, key, {
+    //         expiresIn: "1h",
+    //       });
+
+    //       console.log(loginEmail.password);
+    //       res.status(200).json({
+    //         message: "login successful!",
+    //         data: loginEmail,
+    //         access_token: token,
+    //       });
+    //     }
+    //   } catch {
+    //     res.status(500).json({
+    //       success: false,
+    //       message: "Failed!",
+    //     });
+    //   }
+    // }
+
+       // static async addToCart(req: Request, res: Response, next: NextFunction) {
+    //   const userId = await (<any>req).user;
+    //   const productId = req.params.product;
+    //   const cart = await Order.find({ customer_id: customer_id, product_id: product_id })
+    //   const product = await Product.findById(product_id);
+    //   const productName = product.name;
+    //   const priceTag = product.priceTag;
+    //   const quantity = await req.body.quantity;
+    //   const totalPrice = priceTag * quantity;
+    //   const notes = await req.body.notes
+    //   let createOrder: any;
+    //   let pushOrderId: any;
+    //   let increment: any;
+    //   let sendData: any;
+    //   try {
+    //       if (orderIsExsist != null) {
+    //           const order_id = orderIsExsist.id
+    //           increment = await Order.findByIdAndUpdate(order_id, { $inc: { quantity: 1, totalPrice: priceTag } }, { new: true })
+    //           sendData = orderIsExsist
+    //       } else {
+    //           createOrder = await Order.create({
+    //               customer_id: customer_id,
+    //               product_id: product_id,
+    //               productName: productName,
+    //               quantity: quantity,
+    //               notes: notes,
+    //               priceTag: priceTag,
+    //               totalPrice: totalPrice
+    //           })
+    //           pushOrderId = await Customer.findByIdAndUpdate((<any>req).customer_id, { $push: { cart: createOrder.id } }, { new: true })
+    //           sendData = createOrder
+    //       }
+    //   }
+    //   catch (err) {
+    //       next(err)
+    //   }
+    //   finally {
+    //       res.status(201).json({ success: true, message: "Success add to cart!", cart_data: sendData })
+    //   }
+
+
+    static async addToCart(req: Request, res: Response) {
+        const UserId: any = (<any>req).UserId;
+        const productId = req.body.product;
+        try {
+          const findProduct = await Product.findById(productId);
+          if (findProduct.stock > 0) {
+            const createCart = await Cart.create({
+              user: UserId,
+              product: req.body.productId,
+              totalprice: findProduct.price * req.body.quantity,
+              quantity: req.body.quantity,
+            });
+            const updateStockProduct = await Product.findByIdAndUpdate(
+              req.body.productId,
+              {$inc: {stock: -req.body.quantity}},
+              {new: true}
+            );
+            res.status(201).json({
+              success: true,
+              message: "Cart was created successfully!",
+              data: createCart,
+            });
+          } else {
+            res.status(400).json({
+              success: false,
+              message: "Stock tidak tersedia!",
+            });
+          }
+        } catch (err) {
+          res.status(500).json({
+            success: false,
+            message: "Failed!",
+            data: err,
+          });
+        }
+    }
+
+    // static updateUser(req:Request, res:Response) {
+   //    const idUser:any = (<any>req).userId
+   //    const { username, password, email, fullname, address, city, province, handphone } = req.body;
+
+   //    const updateData = { username: any, password: any, email: any, fullname: any, address: any, city: any, province: any, handphone: any };
+
+   //    for (const item in updateData) {
+   //     //   if (updateData[item] === updateData['password']) {
+   //     //      updateData[item] = bcrypt.hashSync(updateData[item], 8);
+   //     //   }
+   //       if (!updateData[item]) {
+   //          delete updateData[item]
+   //       }
+   //    }
+   //    User.findByIdAndUpdate(idUser, updateData, { new: true })
+   //    .then((result) => {
+   //      res.status(200).json({ msg: 'Success update the user', data: result });
+   //    })
+   //    .catch((err) => {
+   //      res.status(500).json({ msg: 'Failed update the user' });
+   //    });
+   // }
+
+
+   static async addToCart(req: Request, res: Response) {
+      const user_id = await (<any>req).user_id;
+      const product_id = req.params.product_id;
+      const cartIsExsist: any = await Cart.count({ user_id: user_id, product_id: product_id })
+      const product: any = await Product.findById(product_id);
+      const productName = product.name;
+      const priceTag = product.priceTag;
+      const quantity: any = await req.body.quantity;
+      const totalprice: any = priceTag * quantity;
+      const notes = await req.body.notes
+      let createCart: any;
+      let pushCartId: any;
+      let increment: any;
+      let sendData: any;
+
+      try {
+
+          // console.log(typeof (CartIsExsist))
+          // console.log("orederExistCount: " + cartIsExsist)
+
+          if (cartIsExsist == 1) {
+              const existedCart: any = await Cart.findOne({ user_id: user_id, product_id: product_id })
+              const cart_id = existedCart.id
+              // console.log("cartId: " + cart_id)
+              // console.log("increment:" + sendData)
+              increment = await Cart.findByIdAndUpdate(cart_id, { $inc: { quantity: quantity, totalprice: totalprice } }, { new: true })
+              sendData = increment
+          } else {
+              // console.log("CartIsNotExist")
+              createCart = await Cart.create({
+                  user_id: user_id,
+                  product_id: product_id,
+                  productName: productName,
+                  quantity: quantity,
+                  notes: notes,
+                  priceTag: priceTag,
+                  totalPrice: totalPrice
+              })
+              pushCartId = await User.findByIdAndUpdate((<any>req).user_id, { $push: { cart: createCart.id } }, { new: true })
+              sendData = createCart
+          }
+          res.status(201).json({ success: true, message: "Success add to cart!", cart_data: sendData })
+      }
+      catch (err) {
+        res.status(500).json({success: false, message: "Can't Delete Cart",data: "err",});
+      }
+  }
+
+  static async addToCart(req: Request, res: Response) {
+      const userId = (<any>req).user;
+      const productId = req.params.id;
+      try {
+        const findProduct = await Product.findById(productId);
+        const cartId = await Cart.findById(req.body.id);
+        const productStock = findProduct.stock;
+
+        if (req.params.id != cartId.product) {
+          const createCart = await Cart.create({
+            product: productId,
+            quantity: productStock + 1 - productStock,
+            subtotal_payment:
+              findProduct.price * (productStock + 1 - productStock),
+            users: userId,
+          });
+          res.status(201).json({
+            success: true,
+            message: "Create Cart Success",
+            data: createCart,
+          });
+        } else {
+          const incCart = await Cart.findByIdAndUpdate(cartId, {
+            $inc: { quantity: 1, subtotal_payment: findProduct.price },
+          });
+          res.status(200).json({ msg: "Cart have been update", data: incCart });
+        }
+      } catch (err) {
+        res.status(500).json({
+          success: false,
+          message: "Can't Add To Cart",
+          data: err,
+        });
+      }
+    }
+
+     static async addToCart(req: Request, res: Response) {
+    //   const userId = (<any>req).UserId;
+    //   const productId = req.params.product;
+
+    //   try {
+    //     const findProduct = await Product.findById(productId);
+    //     const stockProduct = findProduct.stock;
+
+    //     if (findProduct.stock > 0) {
+    //       const createCart = await Cart.create({
+    //         product: productId,
+    //         quantity: stockProduct + 1 - stockProduct,
+    //         totalprice: findProduct.price,
+    //         user: userId,
+    //       });
+
+    //       const updateStockProduct = await Product.findByIdAndUpdate(
+    //         productId,
+    //         {
+    //           $inc: { stock: -1 },
+    //         },
+    //         { new: true }
+    //       );
+
+    //       res.status(201).json({
+    //         success: true,
+    //         message: "Cart was created successfully",
+    //         data: createCart,
+    //       });
+    //     } else {
+    //       res.status(400).json({
+    //         success: false,
+    //         message: "Stock Empty",
+    //       });
+    //     }
+    //   } catch (err) {
+    //     res.status(500).json({
+    //       success: false,
+    //       message: "Can't Add To Cart",
+    //       data: err,
+    //     });
+    //   }
+    // }
+
+
+    import { Request, Response, ErrorRequestHandler, NextFunction} from 'express'
+
+export default errorHandler:any (req: Request, res: Response, err: ErrorRequestHandler, next: NextFunction) {
+    let code;
+    let name = err.name;
+    let message;
+
+    switch (name) {
+      case "Email_Fail":
+        code = 400;
+        message = "Please Fiil Valid Email";
+        break;
+      case "Missing_Token":
+        code = 401;
+        message = "Unauthorized access";
+        break;
+      case "Forbidden_Access":
+        code = 403;
+        message = "You Can't Access";
+        break;
+      case "Email_and_Password":
+        code = 404;
+        message = "Invalid Username or Password";
+        break;
+      case "Not_Found":
+        code = 404;
+        message = "Page Not Found";
+        break;
+      case "Fail_Created":
+        code = 500;
+        message = "Fail Creates: Resources is not Enough";
+        break;
+      default:
+        code = 500;
+        message = "Internal Server Error";
+        break;
+    }
+    res.status(code).json({ success: false, message: message, error: err });
+};
+
+
+import { Request, Response, ErrorRequestHandler} from 'express'
+
+const errorHandler:any = (req: Request, res: Response, err: ErrorRequestHandler) => {
+    let code;
+    let name = err.name;
+    let message;
+
+    switch (name) {
+      case "Email_Fail":
+        code = 400;
+        message = "Please Fiil Valid Email";
+        break;
+      case "Missing_Token":
+        code = 401;
+        message = "Unauthorized access";
+        break;
+      case "Forbidden_Access":
+        code = 403;
+        message = "You Can't Access";
+        break;
+      case "Email_and_Password":
+        code = 404;
+        message = "Invalid Username or Password";
+        break;
+      case "Not_Found":
+        code = 404;
+        message = "Page Not Found";
+        break;
+      case "Fail_Created":
+        code = 500;
+        message = "Fail Creates: Resources is not Enough";
+        break;
+      default:
+        code = 500;
+        message = "Internal Server Error";
+        break;
+    }
+    res.status(code).json({ success: false, message: message, error: err });
+};
+
+export default errorHandler
