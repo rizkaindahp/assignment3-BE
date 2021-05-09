@@ -5,7 +5,7 @@
   "main": "app.ts",
   "scripts": {
     "dev": "nodemon server.ts",
-    "start": "env-cmd .env node build/server.js"
+    "start": "node build/server.js"
   },
   "keywords": [],
   "author": "",
