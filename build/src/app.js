@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const index_1 = __importDefault(require("./routes/index"));
 const db_1 = __importDefault(require("./config/db"));
 const dotenv_1 = __importDefault(require("dotenv"));
+const cors_1 = __importDefault(require("cors"));
 class App {
     constructor() {
         this.app = express_1.default();
@@ -15,6 +16,8 @@ class App {
         dotenv_1.default.config();
     }
     thirdparty() {
+        this.app.use(cors_1.default());
+        this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: true }));
         db_1.default();
     }

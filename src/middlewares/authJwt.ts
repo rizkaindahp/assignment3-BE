@@ -1,7 +1,6 @@
 import { NextFunction, Response, Request} from 'express';
 import { User } from '../models/User'
 import * as jwt from 'jsonwebtoken';
-
 class authJwt {
    static authentication(req: Request, res: Response, next: NextFunction) {
       const accessToken:any = req.headers.accesstoken
