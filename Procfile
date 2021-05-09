@@ -1,1 +1,1 @@
-web: node build/server.js
+web: env-cmd .env node build/server.js
