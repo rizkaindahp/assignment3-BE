@@ -33,27 +33,22 @@ class auth {
     }
     static register(req, res, next) {
         const emailValidate = EmailValidator.validate(req.body.email);
-        if (emailValidate == true) {
-            const newUser = new User_1.User({
-                username: req.body.username,
-                fullname: req.body.fullname,
-                email: req.body.email,
-                password: bcryptjs_1.default.hashSync(req.body.password, 10),
-            });
-            newUser
-                .save()
-                .then((savedUser) => {
-                res.status(201).json({
-                    message: "Created User Data Success",
-                    data: savedUser,
+        try {
+            if (emailValidate == true) {
+                const newUser = new User_1.User({
+                    username: req.body.username,
+                    fullname: req.body.fullname,
+                    email: req.body.email,
+                    password: bcryptjs_1.default.hashSync(req.body.password, 10),
                 });
-            })
-                .catch((err) => {
-                next(err);
-            });
+                res.status(201).json({ msg: 'Success create your account', data: newUser });
+            }
+            else {
+                throw { name: "Email_Fail" };
+            }
         }
-        else {
-            throw { name: "Email_Fail" };
+        catch (err) {
+            next(err);
         }
     }
     static login(req, res, next) {
