@@ -10,19 +10,20 @@ class auth {
       dotenv.config()
     }
 
-    static register(req:Request, res:Response, next: NextFunction) {
+    static async register(req:Request, res:Response, next: NextFunction) {
       const emailValidate = EmailValidator.validate(req.body.email);
       try{
         if (emailValidate == true) {
-          const newUser = new User({
+          const newUser = await User.create({
             username: req.body.username,
             fullname: req.body.fullname,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
           });
-          newUser.save();
+          newUser.save()
           res.status(201).json({msg: 'Success create your account',data: newUser})
-        } else {
+        }
+        else {
           throw { name: "Email_Fail" };
         }
       } catch (err) {
