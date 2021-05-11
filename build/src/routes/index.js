@@ -11,7 +11,6 @@ const categories_router_1 = __importDefault(require("./categories_router"));
 const cart_route_1 = __importDefault(require("./cart_route"));
 const checkout_route_1 = __importDefault(require("./checkout_route"));
 const errorHandler_1 = __importDefault(require("../middlewares/errorHandler"));
-const authJwt_1 = __importDefault(require("../middlewares/authJwt"));
 class Routes {
     constructor() {
         this.router = express_1.Router();
@@ -19,7 +18,7 @@ class Routes {
         this.auth();
         this.product();
         this.categories();
-        this.authJwt();
+        // this.authJwt()
         this.user();
         this.cart();
         this.checkout();
@@ -39,9 +38,9 @@ class Routes {
     categories() {
         this.router.use('/categories', categories_router_1.default);
     }
-    authJwt() {
-        this.router.use(authJwt_1.default.authentication);
-    }
+    // public authJwt():void{
+    //     this.router.use(authJwt.authentication)
+    // }
     user() {
         this.router.use('/user', user_route_1.default);
     }

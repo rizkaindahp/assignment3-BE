@@ -24,7 +24,6 @@ class authJwt {
     static authentication(req, res, next) {
         const accessToken = req.headers.accesstoken;
         if (!accessToken) {
-            // return res.status(401).json({msg: 'Missing access token..', success: false})
             throw { name: 'Missing_Token' };
         }
         const secretKey = process.env.SECRET_KEY;

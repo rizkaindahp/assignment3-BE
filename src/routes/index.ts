@@ -17,7 +17,7 @@ class Routes {
         this.auth()
         this.product()
         this.categories()
-        this.authJwt()
+        // this.authJwt()
         this.user()
         this.cart()
         this.checkout()
@@ -42,9 +42,9 @@ class Routes {
         this.router.use('/categories', categoriesRoute)
     }
 
-    public authJwt():void{
-        this.router.use(authJwt.authentication)
-    }
+    // public authJwt():void{
+    //     this.router.use(authJwt.authentication)
+    // }
 
     public user():void {
         this.router.use('/user', userRoute)

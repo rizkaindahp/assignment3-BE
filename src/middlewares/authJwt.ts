@@ -5,7 +5,6 @@ class authJwt {
    static authentication(req: Request, res: Response, next: NextFunction) {
       const accessToken:any = req.headers.accesstoken
       if (!accessToken) {
-         // return res.status(401).json({msg: 'Missing access token..', success: false})
          throw {name: 'Missing_Token'}
       }
 
