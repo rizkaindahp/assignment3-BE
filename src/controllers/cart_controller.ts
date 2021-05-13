@@ -40,7 +40,7 @@ class cartController {
     static async deleteCart(req: Request, res: Response, next: NextFunction) {
         try {
             await Cart.findByIdAndDelete(req.params.cartId);
-            res.status(200).json({ message: "Delete Cart Success"});
+            res.status(200).json({ success: true, message: "Delete Cart Success"});
         }
         catch (err){
             next(err)

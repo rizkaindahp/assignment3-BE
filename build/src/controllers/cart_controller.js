@@ -54,7 +54,7 @@ class cartController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 yield Cart_1.default.findByIdAndDelete(req.params.cartId);
-                res.status(200).json({ message: "Delete Cart Success" });
+                res.status(200).json({ success: true, message: "Delete Cart Success" });
             }
             catch (err) {
                 next(err);

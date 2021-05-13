@@ -39,7 +39,7 @@ class userController {
             const idUser = req.params.userId;
             try {
                 const dataUser = yield User_1.User.findById(idUser);
-                res.status(200).json({ msg: "User Data Found", data: dataUser });
+                res.status(200).json({ success: true, msg: "User Data Found", data: dataUser });
             }
             catch (err) {
                 next(err);

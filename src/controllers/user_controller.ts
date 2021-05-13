@@ -18,7 +18,7 @@ class userController{
             {new: true}
          );
          if (!editUser) {
-            res.status(200).json({success: false,message: "Failed!",
+            res.status(200).json({success: false, message: "Failed!",
             });
          }
          res.status(200).json({success: true, msg: "Updated User Success", data: editUser,});
@@ -32,7 +32,7 @@ class userController{
       const idUser:any = req.params.userId
       try {
          const dataUser = await User.findById(idUser);
-         res.status(200).json({ msg: "User Data Found", data: dataUser });
+         res.status(200).json({ success: true, msg: "User Data Found", data: dataUser });
       } catch (err) {
          next(err);
       }

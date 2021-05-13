@@ -25,7 +25,7 @@ class productController {
     static async getAllProduct(req: Request, res: Response, next: NextFunction) {
         try {
             const allProduct = await Product.find();
-            res.status(200).json({ msg: "This is Products", data: allProduct });
+            res.status(200).json({ success: true, msg: "This is Products", data: allProduct });
         }
         catch (err) {
             next(err);
@@ -35,7 +35,7 @@ class productController {
     static async getProductId(req: Request, res: Response, next: NextFunction) {
         try {
             const findCategory = await Product.findById(req.params.productId);
-            res.status(200).json({ msg: "This is Products", data: findCategory });
+            res.status(200).json({ success: true, msg: "This is Products", data: findCategory });
         }
         catch (err) {
             next(err);

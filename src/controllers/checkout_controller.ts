@@ -21,7 +21,7 @@ class checkoutController {
                 totalpayment: totalpayment,
                 user: userId,
             });
-            res.status(201).json({ msg: "checkouts has successfully", data: createCheckout });
+            res.status(201).json({ success: true, msg: "checkouts has successfully", data: createCheckout });
         }
         catch {
             throw { name: "Fail_Checkout" };

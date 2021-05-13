@@ -35,7 +35,7 @@ class categoriesController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const allCategories = yield Categories_1.default.find();
-                res.status(200).json({ msg: "This is Categories", data: allCategories });
+                res.status(200).json({ success: true, msg: "This is Categories", data: allCategories });
             }
             catch (_a) {
                 throw { name: "Not_Found" };
@@ -46,7 +46,7 @@ class categoriesController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const findCategories = yield Categories_1.default.findById(req.params.categoriesId);
-                res.status(200).json({ msg: "This is Categories", data: findCategories });
+                res.status(200).json({ success: true, msg: "This is Categories", data: findCategories });
             }
             catch (_a) {
                 throw { name: "Not_Found" };

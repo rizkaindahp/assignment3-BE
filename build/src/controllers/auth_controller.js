@@ -52,7 +52,7 @@ class auth {
                         password: bcryptjs_1.default.hashSync(req.body.password, 10),
                     });
                     newUser.save();
-                    res.status(201).json({ msg: 'Success create your account', data: newUser });
+                    res.status(201).json({ msg: 'Success create your account', data: newUser, success: true });
                 }
                 else {
                     throw { name: "Email_Fail" };

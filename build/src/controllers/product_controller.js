@@ -40,7 +40,7 @@ class productController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const allProduct = yield Product_1.default.find();
-                res.status(200).json({ msg: "This is Products", data: allProduct });
+                res.status(200).json({ success: true, msg: "This is Products", data: allProduct });
             }
             catch (err) {
                 next(err);
@@ -51,7 +51,7 @@ class productController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const findCategory = yield Product_1.default.findById(req.params.productId);
-                res.status(200).json({ msg: "This is Products", data: findCategory });
+                res.status(200).json({ success: true, msg: "This is Products", data: findCategory });
             }
             catch (err) {
                 next(err);
