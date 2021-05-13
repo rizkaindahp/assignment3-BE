@@ -79,6 +79,7 @@ class auth {
                 message: "Login Success",
                 data: result,
                 AccessToken: token,
+                success: true,
             });
         })
             .catch((err) => {
